@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useGetVideoQuery } from "../../api/apiSlice";
+import { useGetVideoQuery } from "../../features/api/apiSlice";
 import Description from "../video/Description";
 import Player from "../video/Player";
 import RelatedVideos from "../video/related/RelatedVideos";
@@ -42,7 +42,7 @@ export default function Video() {
                     </div>
 
                     {video?.id ? (
-                        <RelatedVideos />
+                        <RelatedVideos id={video.id} title={video.title} />
                     ) : isLoading ? (
                         <>
                             <RelatedVideoLoader />
